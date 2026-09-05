@@ -77,6 +77,8 @@ One strip, every function, with hover tooltips:
 | `B` (hold) | burn-laser (falcon mode) |
 | `N` | arm nuke; **re-press while counting: double yield** |
 | `1`–`6` | ☀ 🌧 ❄️ ⛈ 🌩 🌪 |
+
+**📱 Mobile/touch:** drag the world to look, a glass thumb-pad (thrust/turn/climb/dive/boost/laser) appears bottom-right, the command strip is swipe-scrollable and tap-to-use — no keyboard needed.
 | `C` | toggle clouds · `H` help · `R` new world |
 
 ## HUD & radar
