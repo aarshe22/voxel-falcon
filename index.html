@@ -1068,8 +1068,11 @@ function writeCreatures(){
 
 /* ============================ radar + HUD ======================================= */
 const radar=document.getElementById('radar'),rctx=radar.getContext('2d');
+let mapOn=true;
+function applyMap(){radar.style.display=mapOn?'':'none';fpsEl.style.top=(mapOn?radar.width+22:12)+'px'}
 const RCSS=['#37619c','#c8b276','#4f8d40','#2c5c30','#75706a','#e8f0f8','#514a46','#86868a','#a89a56','#ff6616','#8a6a3a','#26262b','#121114'];
 function drawRadar(){
+  if(!mapOn)return;
   const RW=radar.width,n=24,span=2400,cell=RW/n,s=RW/span,h=RW/2,dot=Math.max(2,RW/48);
   rctx.fillStyle='#06273a';rctx.fillRect(0,0,RW,RW);
   for(let j=0;j<n;j++)for(let i2=0;i2<n;i2++){
@@ -1125,6 +1128,7 @@ addEventListener('keydown',e=>{
   if(e.key==='r'||e.key==='R')needGen=true;
   if(e.key==='n'||e.key==='N'){armOrBoost()}
   if(e.key==='f'||e.key==='F'){toggleFalcon()}
+  if(e.key==='m'||e.key==='M'){mapOn=!mapOn;applyMap()}
   if('123456'.includes(e.key)){const W1=['clear','rain','snow','storm','light','tornado'];setWX(W1['123456'.indexOf(e.key)])}
 });
 addEventListener('keyup',e=>keys.delete(e.key.length===1?e.key.toLowerCase():e.key));
@@ -1580,6 +1584,7 @@ for(const [ic,w,tt] of WXIC)add('b',ic,tt,()=>{audio();setWX(w)},'wx-'+w);
   add('b','🔍−','Zoom out  (key: x)',()=>{cam.zoom=clamp(cam.zoom*1.25,0.26,4.2)});
   add('b','☢','Arm a 15kt nuclear device at your position — 10s countdown  (key: n)',()=>{audio();armNuke()});
   add('b','🌱','Generate a brand-new 32767x32767 world  (key: r)',()=>{needGen=true});
+  add('b','🗺️','Show / hide the radar map  (key: m)',()=>{mapOn=!mapOn;applyMap()});
   add('b','☁','Toggle the voxel cloud layer  (key: c)',()=>{
     showClouds=!showClouds;
     if(!showClouds)for(const rec of chunks.values())if(rec.cl){cloudGrp.remove(rec.cl);rec.cl.geometry.dispose();rec.cl=null}});
@@ -1796,6 +1801,7 @@ function updateFires(dt){
 /* =============== mobile / touch: pads, look, drag-scrollable strip =============== */
 const IS_TOUCH=('ontouchstart' in window)||(typeof navigator!=='undefined'&&(navigator.maxTouchPoints||0)>0);
 if(IS_TOUCH&&document.body&&document.body.classList)document.body.classList.add('touch');
+if(IS_TOUCH||innerWidth<560)mapOn=false;   /* radar auto-hides on small screens — 🗺️ brings it back */
 if(IS_TOUCH&&document.body&&document.body.appendChild){
   const pad=document.createElement('div');pad.id='tpad';
   const cell=(txt,key,area)=>{
@@ -1836,7 +1842,7 @@ function resize(){
   camera.updateProjectionMatrix();
   const RS=Math.round(Math.min(192,Math.max(96,innerHeight-150,innerWidth-40)));
   radar.width=RS;radar.height=RS;radar.style.width=RS+'px';radar.style.height=RS+'px';
-  fpsEl.style.top=(RS+22)+'px';
+  applyMap();
 }
 addEventListener('resize',resize);
 resize();
@@ -1887,7 +1893,7 @@ window.VOXWORLD={get dbg(){return{SEED,cam,VOL,chunks:chunks.size,cities:cityLis
   cityNear:(()=>{let bd=1e18;for(const c of cityList)bd=Math.min(bd,Math.hypot(c.x-cam.x,c.z-cam.z));return bd})(),
   terrain:terrainG.children.length,water:waterG.children.length,lava:lavaG3.children.length,clouds:cloudGrp.children.length}},
   jump:goNearest,wx:setWX,hAt:(x2,z2)=>hV(x2,z2),arm:armNuke,touch:IS_TOUCH,camZoom:()=>cam.zoom,
-  zoom:(f)=>{cam.zoom=clamp(cam.zoom*f,0.26,4.2)},
+  zoom:(f)=>{cam.zoom=clamp(cam.zoom*f,0.26,4.2)},toggleMap:()=>{mapOn=!mapOn;applyMap();return mapOn},
   life:()=>({people:ENT.people.length,dogs:ENT.dogs.length,cows:ENT.cows.length,
     birds:ENT.birds.reduce((a,f)=>a+f.m.length,0),total:lifeTot()}),
   kills:()=>({people:KILLS.people,dogs:KILLS.dogs,cows:KILLS.cows,birds:KILLS.birds,doomed:doomTot()}),

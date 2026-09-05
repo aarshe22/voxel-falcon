@@ -62,7 +62,7 @@ One strip, every function, with hover tooltips:
 
 - **FIND** — `👤 🐕 🐄 🚗 ⛵ 🎈 🕊️ 🏙️ 🏔️ 🌋` one-click fly-to the **nearest** of anything (including undiscovered cities and peaks via spiral search)
 - **WEATHER** — `☀ 🌧 ❄️ ⛈ 🌩 🌪`
-- **WORLD** — `☢` nuke · `🌱` regenerate the planet · `☁` cloud layer · `🔆` laser (hold)
+- **WORLD** — `☢` nuke · `🌱` regenerate the planet · `☁` cloud layer · `🗺️` radar on/off · `🔆` laser (hold)
 
 ## Controls
 
@@ -83,7 +83,7 @@ One strip, every function, with hover tooltips:
 
 ## HUD & radar
 
-Top-left: coordinates, altitude, current biome, nearest city tag, nearest volcano bearing + range. Top-right: a **192 px radar** (auto-shrinks on short viewports, never spills off-screen) with terrain materials, cities, every volcano, your position and your field-of-view cone.
+Top-left: coordinates, altitude, current biome, nearest city tag, nearest volcano bearing + range. Top-right: a **192 px radar** (auto-hidden on phones & narrow windows — `🗺️` or `m` brings it back, and the fps chip slides up to claim the space) (auto-shrinks on short viewports, never spills off-screen) with terrain materials, cities, every volcano, your position and your field-of-view cone.
 
 ## Under the hood
 
