@@ -2,7 +2,7 @@
 
 **A 32767 × 32767 procedural voxel world you can fly, storm, irradiate and laser — rendered entirely in Three.js cubes, from a single HTML file.**
 
-Open `voxel.html` by double-clicking it. No build, no npm, no web server. *(Three.js itself loads from a CDN on first launch — after one online launch it stays in the browser cache.)*
+Open `index.html` by double-clicking it. No build, no npm, no web server. *(Three.js itself loads from a CDN on first launch — after one online launch it stays in the browser cache.)*
 
 ---
 
@@ -94,7 +94,7 @@ Top-left: coordinates, altitude, current biome, nearest city tag, nearest volcan
 
 ```
 git clone git@github.com:aarshe22/voxel-falcon.git
-open voxel-falcon/voxel.html        # macOS: just double-click
+open voxel-falcon/index.html        # macOS: just double-click
 ```
 
 Tip: first open needs internet (three.js CDN, then cached). If frames dip while exploring fast, the world auto-reduces its view radius — no settings required.
