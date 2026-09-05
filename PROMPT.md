@@ -161,7 +161,7 @@ The mission: **decimate all life**. Track `KILLS={people,dogs,cows,birds,vehicle
 ```
 LIFE  👤n 🐕n 🐄n 🕊n  =  <b>total</b>   ☠ DOOMED  <b>n</b> (+ n vehicles)
 ```
-Green normally, class `.doom` (red glow) under 300, and at total 0 with DOOMED > 0 append `— EXTINCTION ACHIEVED: THE FALCON OF DOOM PREVAILS ☠`. Regeneration (`R`) resets kills. Title tag, HUD prefix, help text and README all branded "FALCON OF DOOM".
+Green normally, class `.doom` (red glow) under 300, and at total 0 with DOOMED > 0 append `— EXTINCTION ACHIEVED: THE FALCON OF DOOM PREVAILS ☠`. Regeneration (`R`) resets kills. Title tag, HUD prefix,·  help text and README all branded "FALCON OF DOOM".
 
 ## 11. UI
 
@@ -170,10 +170,10 @@ Green normally, class `.doom` (red glow) under 300, and at total 0 with DOOMED >
 **Radar** top-right: square, size `min(192, max(96, innerHeight−150, innerWidth−40))` (recomputed on resize; fps line repositioned below it; never off-screen). Samples terrain by `matAt` on a 24×24 grid over a ±1200 span (CSS color array), gold city dots, red volcano triangles, white view cone (`atan` of zoom, 72 % radius), yellow camera square.
 
 **Toolbar** — a *single* full-width bottom strip, `overflow-x: auto`, `flex-wrap: nowrap`, hidden scrollbars, `touch-action: pan-x`, **no group labels**, every command is one emoji `b` element with a native `title` tooltip (order and tooltips preserved):
-`👤 🐕 🐄 🚗 ⛵ 🎈 🕊️ 🏙️ 🏔️ 🌋` (jump-to-nearest; cities/mountains found by spiral search if undiscovered) · `☀ 🌧 ❄️ ⛈ 🌩 🌪` (weather; active one tinted `#ffe15a`) · `⏫ ⬇️-hold a… ⏫/⏬/🐇` hold-buttons (pointerdown adds key, up/leave/cancel removes; keys `q`,`a`,`Shift`) · `🔍+ 🔍−` zoom (×0.8 / ×1.25 click) · `🦅` falcon · `🔆` laser **hold** (onpointerdown/leave add/remove `b`) · `☢` nuke (audio unlock + armOrBoost) · `🌱` new seed · `☁` toggle clouds · `❔` toggle help.
+`👤 🐕 🐄 🚗 ⛵ 🎈 🕊️ 🏙️ 🏔️ 🌋` (jump-to-nearest; cities/mountains found by spiral search if undiscovered) · `☀ 🌧 ❄️ ⛈ 🌩 🌪` (weather; active one tinted `#ffe15a`) · `⏫ ⬇️-hold a… ⏫/⏬/🐇` hold-buttons (pointerdown adds key, up/leave/cancel removes; keys `q`,`a`,`Shift`) · `🔍+ 🔍−` zoom (×0.8 / ×1.25 click) · `🦅` falcon · `🔆` laser **hold** (onpointerdown/leave add/remove `b`) · `☢` nuke (audio unlock + armOrBoost) · `🌱` new seed · `☁` toggle clouds.
 Click suppression during drag: `pointerdown` on empty bar area captures `scrollLeft−clientX`; after >6 px movement set `__dragged` (click handlers return early; cleared on pointerup+0 ms); double-click on empty bar re-centers scroll. Tooltips include the hotkey, e.g. `"Arm a nuclear device — press again while counting to double the yield (key: n)"`.
 
-**Help panel** bottom-left above the strip (`H` toggles, auto-dims after 16 s) with the full control legend; on touch it moves above the thumb-pad.
+**No·  help panel** — there must be ZERO persistent text overlays besides the HUD/life strip/fps line and the toolbar; every command is self-documenting via its tooltip (this matters: a text panel filled an iPhone screen and was deleted).
 
 ## 12. Mobile / touch adaptation
 

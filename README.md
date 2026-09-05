@@ -62,7 +62,7 @@ One strip, every function, with hover tooltips:
 
 - **FIND** — `👤 🐕 🐄 🚗 ⛵ 🎈 🕊️ 🏙️ 🏔️ 🌋` one-click fly-to the **nearest** of anything (including undiscovered cities and peaks via spiral search)
 - **WEATHER** — `☀ 🌧 ❄️ ⛈ 🌩 🌪`
-- **WORLD** — `☢` nuke · `🌱` regenerate the planet · `☁` cloud layer · `🔆` laser (hold) · `❔` help
+- **WORLD** — `☢` nuke · `🌱` regenerate the planet · `☁` cloud layer · `🔆` laser (hold)
 
 ## Controls
 
@@ -79,7 +79,7 @@ One strip, every function, with hover tooltips:
 | `1`–`6` | ☀ 🌧 ❄️ ⛈ 🌩 🌪 |
 
 **📱 Mobile/touch:** drag the world to look, a glass thumb-pad (thrust/turn/climb/dive/boost/laser) appears bottom-right, the command strip is swipe-scrollable and tap-to-use — no keyboard needed.
-| `C` | toggle clouds · `H` help · `R` new world |
+| `C` | toggle clouds · `R` new world |
 
 ## HUD & radar
 
