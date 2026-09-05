@@ -14,7 +14,9 @@ The planet is **32,767 × 32,767** — 1.07 billion cells, which is far too larg
 - **Seven active volcanoes** per world — the primary peak plus secondaries scattered across the land. Cones, craters, glowing lava flows down their flanks, and plumes of rising smoke you can see from the horizon.
 - **Rivers** carved by simulated steepest descent from the highlands to the sea, widening as they go.
 - **Lakes** dotted across the lowlands — each one automatically gets a boat puttering around it.
-- **Cities** (2× density) on a deterministic lattice, *including on uneven ground* — the generator relaxes over hills and slopes rather than demanding flatness, so towns climb valleysides. Street grids, farm plots with crops and grazing cattle, country houses, roads connecting neighbours in curved lanes, and a causeway to a hut beside the volcano.
+- **Cities** (2× density) on a deterministic lattice, *including on uneven ground* — the generator relaxes over hills and slopes rather than demanding flatness, so towns climb valleysides. Street grids, roads connecting neighbours in curved lanes, and a causeway to a hut beside the volcano.
+- **Architecture**: three built archetypes scattered by hash — single/two-storey homes with pitched roofs, brick apartment blocks with balcony rows and rooftop tanks, and glass office towers with stepped setbacks and masts. Larger cities get **one airport** (never more): runway with centre-line, terminal, control tower with red beacon, hangar and a parked jet.
+- **Countryside**: 4 farms per city with crop rows (visible stalks), red barns, silos, windmills, water troughs and greenhouses, plus grazing herds.
 - **Persistent ground editing**: craters, rims and burn scars are live features layered into the height and material functions — after a detonation or a laser run, fly away, come back: the damage is still there (within the last few crater scars kept).
 
 ## Life
